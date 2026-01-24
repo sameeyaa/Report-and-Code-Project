@@ -10,3 +10,13 @@ df = pd.read_csv("EnglandWeather.csv", skiprows = 5, sep = r"\s+")
 data_2025 = df[df["year"]== 2025]
 months = ["apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 monthly_temperature = data_2025[months].iloc[0]
+
+#plot the mean temperature graph
+plt.figure()
+plt.plot(months, monthly_temperature, marker = 'o')
+plt.xlabel("Month")
+plt.ylabel("Monthly Mean Temperature (degrees)")
+plt.title("2025 Mean Temperature in England")
+plt.tight_layout()
+plt.grid(True)
+plt.show()
