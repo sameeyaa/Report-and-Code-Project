@@ -5,6 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 
+#resolve directory so all CSV files are found
+directory = Path(__file__).resolve().parent
+
 #load all CSV files from April to December
 files = [
     "April-2025-CSV-revised.csv",
@@ -21,6 +24,7 @@ files = [
 #create a dataframe with all CSV files
 dfs = []
 for filename in files:
+    file_path = directory / filename
     print(f"Reading: {filename}")
-    dfs.append(pd.read_csv(filename))
+    dfs.append(pd.read_csv(directory / filename))
 df = pd.concat(dfs, ignore_index = True)
