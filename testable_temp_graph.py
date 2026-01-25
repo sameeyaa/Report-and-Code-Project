@@ -35,7 +35,7 @@ def temp_graph(months, temps, year = 2025):
     ax.plot(months, temps, marker="o")
     ax.set_xlabel("Month")
     ax.set_ylabel("Mean Temperature (degrees)")
-    ax.set_title("Monthly Mean Temperature in England in 2025")
+    ax.set_title("Monthly Mean Temperature in England 2025")
     ax.grid(True)
     fig.tight_layout()
     return fig, ax

@@ -45,3 +45,6 @@ def test_plot():
     import matplotlib.pyplot as plt
     plt.close(fig)
 
+#run "pytest -q" in terminal to run unit test
+#All 3 tests should pass successfully
+
