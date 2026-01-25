@@ -3,6 +3,7 @@
 #import necessary libraries
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 #load the dataset
 df = pd.read_csv(
@@ -12,6 +13,9 @@ df = pd.read_csv(
     engine="python"
 )
 #print(df.head())
+def load_data():
+    csv_path = Path(__file__).resolve().parent / "EnglandWeather.csv"
+    return pd.read_csv(csv_path, skiprows=5, sep=r"\s+", engine="python")
 
 #filter out the data to only show 2025 data
 def get_monthly_temps(df, year):
@@ -34,3 +38,15 @@ def temp_graph(months, temps, year = 2025):
     ax.grid(True)
     fig.tight_layout()
     return fig, ax
+
+#show the graph
+def main():
+    df = load_data()
+    months = ["apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    temps = get_monthly_temps(df, 2025)
+
+    temp_graph(months, temps, 2025)
+    plt.show()
+
+if __name__ == "__main__":
+    main()
