@@ -23,3 +23,8 @@ def test_2025_values():
     #check if temps contains a numeric value
     assert pd.api.types.is_numeric_dtype(temps)
 
+#if there is data missing, the outcome will be an error
+df = load_data()
+with pytest.raises(ValueError):
+    get_monthly_temps(df,2030)
+
