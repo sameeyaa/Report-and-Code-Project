@@ -12,4 +12,4 @@ def test_monthly_data():
     assert result["Total_ED_Attendees"].notna().all()
 
     result.to_csv("monthly_ed_total.csv", index = False)
-
+#test successfully runs

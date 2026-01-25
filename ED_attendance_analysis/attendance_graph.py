@@ -81,3 +81,7 @@ plt.ticklabel_format(style="plain", axis='y')
 plt.tight_layout()
 plt.grid(True)
 plt.show()
+
+#add results to a csv for a unit test
+result.to_csv("combined_ed_totals.csv", index=False)
+
