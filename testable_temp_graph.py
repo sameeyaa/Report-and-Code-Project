@@ -11,4 +11,15 @@ df = pd.read_csv(
     sep=r"\s+",
     engine="python"
 )
-print(df.head())
+#print(df.head())
+
+#filter out the data to only show 2025 data
+def get_monthly_temps(df, year):
+#data only for April 2025 to December 2025 needed
+    months = ["apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    data_year = df[df["year"] == year]
+
+    if data_year.empty:
+        raise ValueError(f"Year {year} not found")
+
+    return data_year[months].iloc[0]
