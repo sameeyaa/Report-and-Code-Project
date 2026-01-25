@@ -32,8 +32,11 @@ df = pd.concat(dfs, ignore_index = True)
 #filter out data to show April 2025- December 2025
 #this is shown in the 'Period' column
 #As the values of this column is weird (MSitAE-APRIL-2025), we filter the data to only find APRIL-2025
-df["Period_clean"] = (
+df["Filter_Period"] = (
     df["Period"]
     .str.extract(r"([A-Z]+-\d{4})")[0]
     .str.title()
 )
+
+#change the data format into datetime
+df["Month"] = pd.to_datetime(df["Filter_Period"], format = "%B-%Y")
