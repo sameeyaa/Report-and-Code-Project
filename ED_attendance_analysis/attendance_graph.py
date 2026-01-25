@@ -28,3 +28,12 @@ for filename in files:
     print(f"Reading: {filename}")
     dfs.append(pd.read_csv(directory / filename))
 df = pd.concat(dfs, ignore_index = True)
+
+#filter out data to show April 2025- December 2025
+#this is shown in the 'Period' column
+#As the values of this column is weird (MSitAE-APRIL-2025), we filter the data to only find APRIL-2025
+df["Period_clean"] = (
+    df["Period"]
+    .str.extract(r"([A-Z]+-\d{4})")[0]
+    .str.title()
+)
