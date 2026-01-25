@@ -1,6 +1,15 @@
 from pathlib import Path
 import pandas as pd
 
-#read one csv and return the month and number of attendees
-def extract_values(filepath: Path) -> dict:
-    df = pd.read_csv("April-2025-CSV-revised.csv")
+#test to see if all 9 months have data
+def test_monthly_data():
+    result = pd.read_csv("combined_ed_totals.csv")
+
+    #expect 9 months
+    assert len(result) == 9
+    #check for missing values
+    assert result["Month"].notna().all()
+    assert result["Total_ED_Attendees"].notna().all()
+
+    result.to_csv("monthly_ed_total.csv", index = False)
+
