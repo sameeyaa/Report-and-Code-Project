@@ -43,8 +43,11 @@ df["Month"] = pd.to_datetime(df["Filter_Period"], format = "%B-%Y")
 #Calculate the total attendees for each month as they are in secions
 #only looking at Type 1, Type 2 and Other Departments as booked appointments do not count as unexpected turnout
 #admissions do not also count due to this report analysing overall attendance even if its for 1 hour
-df["Total_ED_attendanees"] = (
+df["Total_ED_attendees"] = (
     df["A&E attendances Type 1"]
     + df["A&E attendances Type 2"]
     +df["A&E attendances Other A&E Department"]
 )
+
+#total the attendances for each month
+monthly_total = (df.groupby("Month")["Total_ED_attendees"].sum().sort_index())
