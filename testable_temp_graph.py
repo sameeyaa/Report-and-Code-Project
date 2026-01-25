@@ -23,3 +23,14 @@ def get_monthly_temps(df, year):
         raise ValueError(f"Year {year} not found")
 
     return data_year[months].iloc[0]
+
+#plot the graph for the mean temperature
+def temp_graph(months, temps, year = 2025):
+    fig, ax = plt.subplots()
+    ax.plot(months, temps, marker="o")
+    ax.set_xlabel("Month")
+    ax.set_ylabel("Mean Temperature (degrees)")
+    ax.set_title("Monthly Mean Temperature in England")
+    ax.grid(True)
+    fig.tight_layout()
+    return fig, ax
