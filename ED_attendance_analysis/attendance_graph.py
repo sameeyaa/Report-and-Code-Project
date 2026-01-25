@@ -51,3 +51,14 @@ df["Total_ED_attendees"] = (
 
 #total the attendances for each month
 monthly_total = (df.groupby("Month")["Total_ED_attendees"].sum().sort_index())
+
+#plot graph
+plt.figure (figsize = (12,8))
+plt.plot(monthly_total.index, monthly_total.values)
+plt.title("Total Emergency Department Attendances 2025")
+plt.xlabel("Month")
+plt.ylabel("Number of attendees")
+plt.xticks(rotation = 45)
+plt.tight_layout()
+plt.grid(True)
+plt.show()
