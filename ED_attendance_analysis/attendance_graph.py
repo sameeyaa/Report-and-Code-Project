@@ -6,9 +6,14 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 #load all CSV files from April to December
-dfs = []
-for file in Path(".").glob("*.csv"):
-    print(f"Reading: {file.name}")
-    dfs.append(pd.read_csv(file))
-
-df = pd.concat(dfs, ignore_index = True)
+files = [
+    "April-2025-CSV-revised.csv",
+    "May-2025-CSV-revised.csv",
+    "June-2025-CSV-revised.csv",
+    "July-2025-CSV-revised.csv",
+    "August-2025-CSV-revised.csv",
+    "September-2025-CSV-revised.csv",
+    "October-2025-CSV-hg6dl.csv",
+    "November-2025-CSV-G9pr3.csv",
+    "December-2025-CSV-K7F4Sp.csv",
+]
