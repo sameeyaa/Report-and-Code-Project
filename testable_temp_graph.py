@@ -11,3 +11,4 @@ df = pd.read_csv(
     sep=r"\s+",
     engine="python"
 )
+print(df.head())
