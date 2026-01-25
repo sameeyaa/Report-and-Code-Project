@@ -17,3 +17,10 @@ files = [
     "November-2025-CSV-G9pr3.csv",
     "December-2025-CSV-K7F4Sp.csv",
 ]
+
+#create a dataframe with all CSV files
+dfs = []
+for filename in files:
+    print(f"Reading: {filename}")
+    dfs.append(pd.read_csv(filename))
+df = pd.concat(dfs, ignore_index = True)
