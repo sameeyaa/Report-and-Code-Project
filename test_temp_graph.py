@@ -41,3 +41,7 @@ def test_plot():
     assert ax.get_ylabel() == "Mean Temperature (degrees)"
     assert ax.get_title() == "Monthly Mean Temperature in England 2025"
 
+    #close figure to avoid reaching figure limit in Circle CI
+    import matplotlib.pyplot as plt
+    plt.close(fig)
+
