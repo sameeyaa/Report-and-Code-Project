@@ -6,13 +6,14 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 #load the dataset
-df = pd.read_csv(
-    "EnglandWeather.csv",
-    skiprows=5,
-    sep=r"\s+",
-    engine="python"
-)
+#df = pd.read_csv(
+ #   "EnglandWeather.csv",
+ #   skiprows=5,
+#    sep=r"\s+",
+ #   engine="python"
+#)
 #print(df.head())
+
 def load_data():
     csv_path = Path(__file__).resolve().parent / "EnglandWeather.csv"
     return pd.read_csv(csv_path, skiprows=5, sep=r"\s+", engine="python")
