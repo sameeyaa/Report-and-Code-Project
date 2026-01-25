@@ -28,3 +28,16 @@ df = load_data()
 with pytest.raises(ValueError):
     get_monthly_temps(df,2030)
 
+#test if the plot of the graph is accurate
+def test_plot():
+    df = load_data()
+    months = ["apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    temps = get_monthly_temps(df, 2025)
+    fig, ax = temp_graph(months, temps, 2025)
+
+    #check if one line is plotted and labels are the same
+    assert len(ax.lines) == 1
+    assert ax.get_xlabel() == "Month"
+    assert ax.get_ylabel() == "Mean Temperature (degrees)"
+    assert ax.get_title() == "Monthly Mean Temperature in England 2025"
+
