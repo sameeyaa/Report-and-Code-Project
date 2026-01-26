@@ -41,5 +41,10 @@ def test_data():
             total["A&E attendances Type 2"],
             total("A&E attendances Other A&E Department")
         ])
+
+    #create a dataframe
+    admissions_df = pd.DataFrame( rows, columns = ["Type 1", "Type 2", "Other A&E"])
+
+
         
 
