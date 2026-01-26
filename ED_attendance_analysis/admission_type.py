@@ -7,6 +7,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
+import numpy as np
 
 #state the directory
 directory = Path(__file__).resolve().parent
@@ -41,7 +42,7 @@ for file in files:
         "Other A&E": total["A&E attendances Other A&E Department"]
     })
 
-#create a dataframe for easier plotting and calculate an average of admissions
+#create a dataframe for easier plotting
 admissions_df = pd.DataFrame(rows)
 admissions_df["Month"] = [f.split("-")[0] for f in files]
 #average = admissions_df.mean() 
@@ -50,13 +51,22 @@ admissions_df.set_index("Month", inplace = True)
 
 #plot the bar graph
 #make a stacked bar chart to show each month
-admissions_df.plot(
-    kind = "bar",
-    stacked = True,
-    figsize = (12,8))
+#instead make a clustered bar chart for easier analysis
+#admissions_df.plot(
+#    kind = "bar",
+ #   stacked = True,
+#    figsize = (12,8))
 
+months = admissions_df.index
+x = np.arrange(len(months))
+width = 0.25
+
+plt.figure(figsize = (12,8))
+plt.bar(x - width, admissions_df["Type 1"], width, label = "Type 1 attendance")
+plt.bar(x, admissions_df["Type 2"], width, label = "Type 2 attendance")
+plt.bar(x + width, admissions_df["Other A&E"], width, label = "Other A&E attendances")
 plt.title("Monthly Attendance by Type of Admission in England")
 plt.ylabel("Monthly Attendance")
-plt.xticks(rotation = 45)
+plt.xticks(x, months, rotation = 45)
 plt.tight_layout
 plt.show()
