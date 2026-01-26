@@ -7,3 +7,4 @@ test_temp_graph = 49
 testable_temp_graph = 53
 attendance graph = 83
 test_attendance_graph = 15
+attendance_weather_correlation = 60
