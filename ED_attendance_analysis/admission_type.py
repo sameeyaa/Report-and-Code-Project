@@ -38,3 +38,7 @@ for file in files:
         "Type 2": total["A&E attendances Type 2"],
         "Other A&E": total["A&E attendances Other A&E Department"]
     })
+
+#create a dataframe for easier plotting and calculate an average of admissions
+admissions_df = pd.DataFrame(rows)
+average = admissions_df.mean()
