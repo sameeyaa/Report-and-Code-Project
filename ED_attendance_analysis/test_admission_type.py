@@ -33,5 +33,13 @@ def test_data():
             f"No total row found in {file}"
         
         #take the total row
+        total = df[df["Org name"].astype(str).str.strip().str.upper() == "TOTAL"].iloc[0]
+
+        #seperate attendance by admission type
+        rows.append([
+            total["A&E attendances Type 1"],
+            total["A&E attendances Type 2"],
+            total("A&E attendances Other A&E Department")
+        ])
         
 
