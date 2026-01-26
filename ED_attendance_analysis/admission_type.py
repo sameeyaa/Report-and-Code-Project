@@ -31,6 +31,8 @@ for file in files:
 
     #only use the totals row
     total = df[df["Org name"].astype(str).str.strip().str.upper() == "TOTAL"].iloc[0]
+    #extract each month
+    extract_month = file.split("-")[0]
 
     #group the attendance by admission type
     rows.append({
@@ -41,7 +43,9 @@ for file in files:
 
 #create a dataframe for easier plotting and calculate an average of admissions
 admissions_df = pd.DataFrame(rows)
+admissions_df["Month"] = [f.split("-")[0] for f in files]
 #average = admissions_df.mean() 
+print(admissions_df.columns)
 admissions_df.set_index("Month", inplace = True)
 
 #plot the bar graph
@@ -51,8 +55,8 @@ admissions_df.plot(
     stacked = True,
     figsize = (12,8))
 
-plt.title("Average Monthly Attendance by Type of Admission in England")
-plt.ylabel("Average Monthly Attendance")
+plt.title("Monthly Attendance by Type of Admission in England")
+plt.ylabel("Monthly Attendance")
 plt.xticks(rotation = 45)
 plt.tight_layout
 plt.show()
