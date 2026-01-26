@@ -58,7 +58,7 @@ admissions_df.set_index("Month", inplace = True)
 #    figsize = (12,8))
 
 months = admissions_df.index
-x = np.arrange(len(months))
+x = np.arange(len(months))
 width = 0.25
 
 plt.figure(figsize = (12,8))
@@ -68,5 +68,6 @@ plt.bar(x + width, admissions_df["Other A&E"], width, label = "Other A&E attenda
 plt.title("Monthly Attendance by Type of Admission in England")
 plt.ylabel("Monthly Attendance")
 plt.xticks(x, months, rotation = 45)
+plt.legend()
 plt.tight_layout
 plt.show()
