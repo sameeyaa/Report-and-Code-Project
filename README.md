@@ -8,3 +8,5 @@ testable_temp_graph = 53
 attendance graph = 83
 test_attendance_graph = 15
 attendance_weather_correlation = 60
+admission type = 73 
+ 
