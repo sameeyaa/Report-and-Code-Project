@@ -45,6 +45,13 @@ def test_data():
     #create a dataframe
     admissions_df = pd.DataFrame( rows, columns = ["Type 1", "Type 2", "Other A&E"])
 
+    #test if there is 9 months of data and each month has 3 admission types
+    assert admissions_df.shape == (9, 3)
+    #test if there is missing values 
+    assert admissions_df.notna().all().all()
+
+    #run "pytest -q" in terminal to run unit test
+
 
         
 
