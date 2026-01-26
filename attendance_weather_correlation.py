@@ -23,3 +23,12 @@ temp_df = pd.DataFrame({
 
 #merge the datasets together
 merged_datasets = pd.merge(ed_df, temp_df, on = "Month")
+
+#calculate the correlation
+corr, p_value = pearsonr(
+    merged_datasets["Mean_Temperature"],
+    merged_datasets["Total_ED_Attendees"]
+)
+
+print(f"Correlation Coefficient : {corr:.3f}")
+print(f"P-value: {p_value:.4f}")
