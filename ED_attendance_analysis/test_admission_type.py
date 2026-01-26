@@ -25,4 +25,13 @@ def test_data():
     ]
 
     rows = []
-    
+    for file in files:
+        df = pd.read_csv(directory / file)
+
+        #clarify if a TOTAL row is present
+        assert (df["Org name"].astype(str).str.strip().str.upper() == "TOTAL").any(), \
+            f"No total row found in {file}"
+        
+        #take the total row
+        
+
