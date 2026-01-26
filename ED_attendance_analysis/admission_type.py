@@ -31,4 +31,10 @@ for file in files:
 
     #only use the totals row
     total = df[df["Org name"].astype(str).str.strip().str.upper() == "TOTAL"].iloc[0]
-    
+
+    #group the attendance by admission type
+    rows.append({
+        "Type 1": total["A&E attendances Type 1"],
+        "Type 2": total["A&E attendances Type 2"],
+        "Other A&E": total["A&E attendances Other A&E Department"]
+    })
