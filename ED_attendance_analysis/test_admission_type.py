@@ -39,7 +39,7 @@ def test_data():
         rows.append([
             total["A&E attendances Type 1"],
             total["A&E attendances Type 2"],
-            total("A&E attendances Other A&E Department")
+            total["A&E attendances Other A&E Department"]
         ])
 
     #create a dataframe
