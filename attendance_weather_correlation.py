@@ -32,3 +32,7 @@ corr, p_value = pearsonr(
 
 print(f"Correlation Coefficient : {corr:.3f}")
 print(f"P-value: {p_value:.4f}")
+
+#calculate linear regression
+r_squared = corr ** 2
+print(f"Regression value: {r_squared:.3f}")
