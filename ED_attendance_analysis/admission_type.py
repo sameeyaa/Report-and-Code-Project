@@ -41,4 +41,18 @@ for file in files:
 
 #create a dataframe for easier plotting and calculate an average of admissions
 admissions_df = pd.DataFrame(rows)
-average = admissions_df.mean()
+#average = admissions_df.mean() 
+admissions_df.set_index("Month", inplace = True)
+
+#plot the bar graph
+#make a stacked bar chart to show each month
+admissions_df.plot(
+    kind = "bar",
+    stacked = True,
+    figsize = (12,8))
+
+plt.title("Average Monthly Attendance by Type of Admission in England")
+plt.ylabel("Average Monthly Attendance")
+plt.xticks(rotation = 45)
+plt.tight_layout
+plt.show()
