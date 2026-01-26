@@ -21,3 +21,5 @@ temp_df = pd.DataFrame({
     "Mean_Temperature": temps.values
 })
 
+#merge the datasets together
+merged_datasets = pd.merge(ed_df, temp_df, on = "Month")
