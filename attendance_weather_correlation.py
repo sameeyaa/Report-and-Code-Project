@@ -5,6 +5,7 @@ import pandas as pd
 from pathlib import Path
 from scipy.stats import pearsonr
 import numpy as np
+import matplotlib.pyplot as plt
 
 #load the combined data of Emergency Department attendances
 ed_df = pd.read_csv(Path(__file__).resolve().parent / "combined_ed_totals.csv", parse_dates = ["Month"]
@@ -36,3 +37,24 @@ print(f"P-value: {p_value:.4f}")
 #calculate linear regression
 r_squared = corr ** 2
 print(f"Regression value: {r_squared:.3f}")
+
+#plot regression graph
+#set x and y values for scatter
+x = merged_datasets["Mean_Temperature"].values
+y = merged_datasets["Total_ED_Attendees"].values
+
+#best fit line
+slope, intercept = np.polyfit(x, y, 1)
+y_pred = slope * x + intercept
+
+plt.figure(figsize = (12, 8))
+plt.scatter(x, y, label = "Observed data")
+plt.plot(x, y_pred, label = "Regression line")
+plt.title("Relationship between A&E attendance and Weather in England")
+plt.xlabel("Average Monthly Temperature (degrees)")
+plt.ylabel("Emergency Department attendances")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
