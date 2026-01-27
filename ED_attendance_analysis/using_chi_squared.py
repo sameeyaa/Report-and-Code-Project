@@ -54,7 +54,7 @@ observed = contingency.values.astype(float)
 expected = expected.astype(float)
 std_residual = (observed - expected) / np.sqrt(expected)
 
-plt.figure()
+plt.figure(figsize = (12, 8))
 heatmap = plt.imshow(std_residual, aspect = "auto")
 plt.colorbar(heatmap, label = "Standardised Residual")
 
