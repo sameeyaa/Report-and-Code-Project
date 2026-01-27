@@ -34,3 +34,23 @@ forecast_df = pd.DataFrame({
     "Month" : forecast_months,
     "Predicted_Attendance" : forecast_data
 })
+
+#plot the graph
+plt.figure(figsize = (12, 8))
+plt.plot(df["Month"], df["Total_ED_Attendees"], label = "Observed", color = "pink")
+plt.plot(
+    forecast_df["Month"],
+    forecast_df["Predicted_Attendance"],
+    linestyle = '--',
+    label = "6 Month Forecast",
+    color = "yellow"
+)
+
+#set labels
+plt.title("Six Month Forecast of A&E Attendance - England 2025")
+plt.xlabel("Month")
+plt.ylabel("Emergency Department Attendances (millions)")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
