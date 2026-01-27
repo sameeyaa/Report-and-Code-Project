@@ -47,3 +47,32 @@ chi2, p, dof, expected = chi2_contingency(contingency.values)
 
 print("Chi-Squared test: Admission type vs Month")
 print(f"chi^2 = {chi2:.2f}, dof = {dof}, p-value = {p:.6f}")
+
+#plot a heatmap to show what type of admission causes most attendance in each month
+#analyse deviations
+observed = contingency.values.astype(float)
+expected = expected.astype(float)
+std_residual = (observed - expected) / np.sqrt(expected)
+
+plt.figure()
+heatmap = plt.imshow(std_residual, aspect = "auto")
+plt.colorbar(heatmap, label = "Standardised Residual")
+
+#label axis
+#x axis = admission types
+plt.xticks(
+    np.arange(contingency.shape[1]),
+    contingency.columns,
+    rotation = 0
+)
+
+#y axis = months
+plt.yticks(
+    np.arange(contingency.shape[0]),
+    contingency.index
+)
+
+plt.title("Chi-Squared test: Monthly Admission Type in England 2025")
+plt.xlabel("Admission Type")
+plt.ylabel("Month")
+plt.show()
