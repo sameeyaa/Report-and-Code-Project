@@ -29,3 +29,11 @@ temp_df = pd.DataFrame({
 #combine the datasets
 merge = pd.merge(ed_df, temp_df, on = "Month")
 
+#test if there are 9 outcomes or any missing values
+assert len(merge) == 9
+assert "Average_Temperature" in merge.columns
+assert "Total_ED_Attendees" in merge.columns
+assert merge["Average_Temperature"].notna().all()
+assert merge["Total_ED_Attendees"].notna().all()
+
+
