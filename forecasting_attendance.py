@@ -23,3 +23,8 @@ slope, intercept = np.polyfit(t, y, 1)
 forecast_scope = 6 #for 6 months
 future_t = np.arange(len(df), len(df) + forecast_scope)
 forecast_data = slope * future_t + intercept
+forecast_months = pd.date_range(
+    df["Month"].iloc[-1] + pd.offsets.MonthBegin(1),
+    periods = forecast_scope,
+    freq = "MS"
+)
