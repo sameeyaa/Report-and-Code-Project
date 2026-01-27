@@ -11,3 +11,4 @@ attendance_weather_correlation = 60
 admission type = 73 
 test admission type = 54
 forecast = 60
+chi-squared test = 78
