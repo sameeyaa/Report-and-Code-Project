@@ -11,3 +11,10 @@ from pathlib import Path
 #use historical data
 df = pd.read_csv(Path(__file__).resolve().parent / "combined_ed_totals.csv",
                  parse_dates = ["Month"]).sort_values("Month")
+
+#use a time index
+t = np.arange(len(df))
+y = df["Total_ED_Attendees"].values
+
+#add linear regression
+slope, intercept = np.polyfit(t, y, 1)
