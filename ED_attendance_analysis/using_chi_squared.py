@@ -20,3 +20,25 @@ files = [
     "November-2025-CSV-G9pr3.csv",
     "December-2025-CSV-K7F4Sp.csv",
 ]
+
+#make a contingency table where rows = months, column = admission type
+rows = []
+months = []
+
+for file in files:
+    df = pd.read_csv(directory / file)
+    #use the total row
+    total = df[df["Org name"].astype(str).str.strip().str.upper() == "TOTAL"].iloc[0]
+    #take the month from filename
+    month = file.split("-")[0]
+    months.append(month)
+
+    #calculate the attendances by admission type
+    rows.append([
+        total["A&E attendances Type 1"],
+        total["A&E attendances Type 2"],
+        total["A&E attendances Other A&E Department"],
+    ])
+
+contingency = pd.DataFrame(rows, index = months, columns = ["Type 1 Attendances", "Type 2 Attendances", "Other A&E Attendances"])
+
