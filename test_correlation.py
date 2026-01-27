@@ -10,6 +10,6 @@ from scipy.stats import pearsonr
 
 #get the attendances values
 ed_df = pd.read_csv(
-    Path("ED_attendance_analysis")/ "combined_ed_totals.csv",
+    "combined_ed_totals.csv",
     parse_dates=["Month"]
 )
