@@ -42,3 +42,8 @@ for file in files:
 
 contingency = pd.DataFrame(rows, index = months, columns = ["Type 1 Attendances", "Type 2 Attendances", "Other A&E Attendances"])
 
+#chi-squared test
+chi2, p, dof, expected = chi2_contingency(contingency.values)
+
+print("Chi-Squared test: Admission type vs Month")
+print(f"chi^2 = {chi2:.2f}, dof = {dof}, p-value = {p:.6f}")
