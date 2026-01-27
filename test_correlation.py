@@ -19,3 +19,9 @@ from testable_temp_graph import load_data, get_monthly_temps
 weather_df = load_data()
 temps = get_monthly_temps(weather_df, 2025)
 
+#create a dataframe for the temperature data
+months = pd.date_range("2025-04-01", "2025-12-01", freq="MS")
+temp_df = pd.DataFrame({
+    "Month" : months,
+    "Average_Temperature": temps.values
+})
