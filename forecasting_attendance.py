@@ -18,3 +18,8 @@ y = df["Total_ED_Attendees"].values
 
 #add linear regression
 slope, intercept = np.polyfit(t, y, 1)
+
+#forecast 6 months attendance
+forecast_scope = 6 #for 6 months
+future_t = np.arange(len(df), len(df) + forecast_scope)
+forecast_data = slope * future_t + intercept
