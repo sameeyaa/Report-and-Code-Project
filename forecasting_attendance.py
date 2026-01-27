@@ -43,8 +43,12 @@ plt.plot(
     forecast_df["Predicted_Attendance"],
     linestyle = '--',
     label = "6 Month Forecast",
-    color = "yellow"
+    color = "blue"
 )
+
+#make all months show in the x axis
+show_months = pd.concat([df["Month"], forecast_df["Month"]])
+plt.xticks(show_months, [m.strftime("%b %Y") for m in show_months], rotation = 45)
 
 #set labels
 plt.title("Six Month Forecast of A&E Attendance - England 2025")
