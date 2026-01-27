@@ -28,3 +28,9 @@ forecast_months = pd.date_range(
     periods = forecast_scope,
     freq = "MS"
 )
+
+#create a dataframe for easier plotting of graph
+forecast_df = pd.DataFrame({
+    "Month" : forecast_months,
+    "Predicted_Attendance" : forecast_data
+})
