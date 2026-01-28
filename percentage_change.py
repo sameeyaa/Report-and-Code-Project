@@ -13,3 +13,10 @@ df = pd.read_csv("combined_ed_totals.csv",
 df["percentage_change"] = df["Total_ED_Attendees"].pct_change() * 100
 
 #plot graph
+plt.figure(figsize = (12,8))
+plt.bar(df["Month"].dt.strftime("%b"), df["percentage_change"])
+plt.title("Monthly A&E attendance percentage change")
+plt.xlabel("Months")
+plt.ylabel("Percentage Change (%)")
+plt.tight_layout()
+plt.show()
