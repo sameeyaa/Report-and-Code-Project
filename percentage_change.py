@@ -9,3 +9,7 @@ from pathlib import Path
 df = pd.read_csv("combined_ed_totals.csv",
                  parse_dates = ["Month"]).sort_values("Month")
 
+#percentage change
+df["percentage_change"] = df["Total_ED_Attendees"].pct_change() * 100
+
+#plot graph
