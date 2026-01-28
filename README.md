@@ -12,3 +12,4 @@ admission type = 73
 test admission type = 54
 forecast = 60
 chi-squared test = 78
+correlation test = 59
