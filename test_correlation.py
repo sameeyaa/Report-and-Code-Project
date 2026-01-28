@@ -57,3 +57,4 @@ assert np.isfinite(intercept)
 assert np.isfinite(y_pred).all()
 
 #run unit test by typing "pytest -q in terminal"
+#unit test runs successfully
