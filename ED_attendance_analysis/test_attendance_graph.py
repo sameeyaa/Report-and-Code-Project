@@ -13,3 +13,4 @@ def test_monthly_data():
 
     result.to_csv("monthly_ed_total.csv", index = False)
 #test successfully runs
+#run "pytest -q in terminal
