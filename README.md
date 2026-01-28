@@ -14,3 +14,4 @@ forecast = 60
 chi-squared test = 78
 correlation test = 59
 attendance timing = 28
+weekend vs weekday = 34
