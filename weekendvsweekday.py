@@ -14,3 +14,12 @@ df = df[df["Measure Type"].str.contains("Number of A&E" , na= False)]
 #classify ending with :00 as time
 time_column = [c for c in df.columns if c.endswith(":00")]
 df[time_column] = df[time_column].replace(",", "", regex = True).astype(int)
+
+#seperate days into weekend and weekday
+weekday = df[df["Reporting Period"].isin(
+    ["Monday","Tuesday", "Wednesday", "Thursday", "Friday"]
+    )][time_column].sum()
+
+weekend = df[df["Reporting Period"].isin(
+    ["Saturday", "Sunday"]
+)][time_column].sum()
