@@ -1,4 +1,4 @@
-#graph to see whether weekdays or weekends have higher attendances
+#graph  to see whether weekdays or weekends have higher attendances
 
 #import libraries
 import pandas as pd
@@ -25,9 +25,11 @@ weekend = df[df["Reporting Period"].isin(
 )][time_column].sum()
 
 #plot graph
-plt.figure(figsize = (12,8))
+plt.figure(figsize = (8,6))
 plt.plot(time_column, weekday, label = "Weekdays", color = "pink")
 plt.plot(time_column, weekend, label = "Weekend", color = "orange")
+plt.xlabel("Time")
+plt.ylabel("Attendance")
 plt.legend()
 plt.xticks(rotation = 90)
 plt.title("A&E Attendance: Weekdays vs Weekend")
