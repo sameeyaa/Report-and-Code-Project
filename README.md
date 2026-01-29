@@ -8,7 +8,7 @@ contains: 703 lines of code (excluding ReadMe file, requirements text,config fil
 - https://digital.nhs.uk/data-and-information/publications/statistical/hospital-accident--emergency-activity/2024-25
 
 
-   **Data Analysis**
+**Data Analysis**
   - Data forecasting future A&E attendances using historical Emergency Attendance data
   - Correlation and Regression graph to test relationship between weather and A&E attendance, using Pearson test
   - Chi-Squared test
